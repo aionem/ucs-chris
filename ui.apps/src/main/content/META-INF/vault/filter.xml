@@ -3,4 +3,5 @@
     <filter root="/apps/ucs-exercise-christian/clientlibs"/>
     <filter root="/apps/ucs-exercise-christian/components"/>
     <filter root="/apps/ucs-exercise-christian/i18n"/>
+    <filter root="/apps/ucs-exercise-christian/templates"/>
 </workspaceFilter>
