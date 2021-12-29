@@ -1,0 +1,9 @@
+<div class="footer__mainLink" >
+    <sly data-sly-use.model="it.codeland.academy.core.models.FootelModel"  />
+    <div data-sly-list.item="${model.links}">
+        <a href="${item.url}.html"  target="_${item.type}" class="footer__link">${item.title}</a> 
+    </div>
+    <div data-sly-test="${wcmmode.edit && !model.links}">
+        <p class="footer__link">Add Bottom Navigation Links here</p>
+    </div>
+</div>
