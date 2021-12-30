@@ -17,9 +17,7 @@ package it.codeland.academy.core.models;
 
 import java.util.*;
 
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
@@ -49,8 +47,30 @@ public class FootelModel {
                 }
             }
         } catch (Exception e) {
-            LOG.error("\n ERROR Getting  ", e.getMessage());
+            LOG.error("\n ERROR Getting while fetcching data", e.getMessage());
         }
         return BottomNavLinks;
+    }
+    
+    public List<Map<String, String>> getSubLinks() { 
+        List<Map<String, String>> BottomSubNavLinks = new ArrayList<>();
+        try {
+            Resource DialogLinks = currentResource.getChild("footerSubNavigations");
+            if (DialogLinks == null) {
+                return Collections.emptyList();
+            }
+            if (DialogLinks != null) {
+                for (Resource item : DialogLinks.getChildren()) {
+                    Map<String, String> menuMap = new HashMap<String, String>();
+                    menuMap.put("title", item.getValueMap().get("title", String.class));
+                    menuMap.put("url", item.getValueMap().get("url", String.class));
+                    menuMap.put("type", item.getValueMap().get("type", String.class));
+                    BottomSubNavLinks.add(menuMap);
+                }
+            }
+        } catch (Exception e) {
+            LOG.error("\n ERROR Getting while fetcching data", e.getMessage());
+        }
+        return BottomSubNavLinks;
     }
 }
