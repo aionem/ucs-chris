@@ -52,7 +52,7 @@ public class FootelModel {
         return BottomNavLinks;
     }
     
-    public List<Map<String, String>> getSubLinks() { 
+    public List<Map<String, String>> getSubLinks() {
         List<Map<String, String>> BottomSubNavLinks = new ArrayList<>();
         try {
             Resource DialogLinks = currentResource.getChild("footerSubNavigations");
@@ -72,5 +72,48 @@ public class FootelModel {
             LOG.error("\n ERROR Getting while fetcching data", e.getMessage());
         }
         return BottomSubNavLinks;
+    }
+    
+    public List<Map<String, String>> getSocialMedias() {
+        List<Map<String, String>> socialsMap = new ArrayList<>();
+        try {
+            Resource navsDialog = currentResource.getChild("socials");
+
+            if (navsDialog == null) {
+                return Collections.emptyList();
+            }
+
+            if (navsDialog != null) {
+                for (Resource navItem : navsDialog.getChildren()) {
+                    Map<String, String> mapNavItem = new HashMap<>();
+                    mapNavItem.put("link", navItem.getValueMap().get("link", String.class));
+                    mapNavItem.put("icon", navItem.getValueMap().get("icon", String.class));
+                    mapNavItem.put("target", navItem.getValueMap().get("target", String.class));
+                    socialsMap.add(mapNavItem);
+                }
+            }
+        } catch (Exception e) {
+            LOG.info("ERROR while getting socials ", e.getMessage());
+        }
+        return socialsMap;
+    }
+    
+    public List<Map<String, String>> getUtilsItems() {
+        List<Map<String, String>> utilNavLinksMap = new ArrayList<>();
+        try {
+            Resource navsDialog=currentResource.getChild("utilNavItems");
+            if(navsDialog!=null){
+                for (Resource navItem : navsDialog.getChildren()) {
+                    Map<String,String> mapNavItem = new HashMap<>();
+                    mapNavItem.put("link",navItem.getValueMap().get("link",String.class));
+                    mapNavItem.put("linkTo",navItem.getValueMap().get("linkTo",String.class));
+                    mapNavItem.put("target",navItem.getValueMap().get("target",String.class));
+                    utilNavLinksMap.add(mapNavItem);
+                }
+            }
+        }catch (Exception e){
+            LOG.info("ERROR while getting first row links ",e.getMessage());
+        }
+        return utilNavLinksMap;
     }
 }

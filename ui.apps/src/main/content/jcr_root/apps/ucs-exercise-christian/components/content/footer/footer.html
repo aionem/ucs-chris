@@ -6,27 +6,15 @@
     </div>
     <div class="footer__bottom">
       <div class="footer__col">
-        <img class="footer__logo" src="/etc.clientlibs/ucs-exercise-christian/clientlibs/clientlib-base/resources/basics-logo-negative.svg" />
-        <div class="footer__copy">
+      <div class="footer_logo" data-sly-resource="${'logo' @resourceType='/apps/ucs-exercise-christian/components/content/logobottom'}"
+        ></div>
+      <div class="footer__copy">
           © 20XX – 20XX UniCredit S.p.A. - All Rights reserved
         </div>
       </div>
       <div class="footer__col">
-        <div class="footer__socials">
-          <a href="#">
-            <span class="icon-twitter"></span>
-          </a>
-          <a href="#">
-            <span class="icon-linkedin"></span>
-          </a>
-          <a href="#">
-            <span class="icon-youtube"></span>
-          </a>
-        </div>
-        <div class="footer__utils">
-          <a href="#">Lorem ipsum</a>
-          <a href="#">Lorem ipsum</a>
-        </div>
+      <div data-sly-resource="${'footersocial' @ resourceType='ucs-exercise-christian/components/content/footersocial'}"></div>
+      <div data-sly-resource="${'footerrightcorner' @ resourceType='ucs-exercise-christian/components/content/footerrightcorner'}"></div>
       </div>
     </div>
   </div>
