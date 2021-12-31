@@ -1,0 +1,10 @@
+<sly data-sly-use.model="it.codeland.academy.core.models.HeaderModel"  />
+<div class="navbar__links" data-sly-list.item="${model.topNavLinks}" >
+    <a class="navbar__link contact-us" href="${item.link}.html">
+        <div class="icon ${item.icon}"></div>
+        <p class="text--label">${item.title}</p>
+    </a>
+</div>
+<div data-sly-test="${wcmmode.edit && !model.topNavLinks}">
+    <p class="text--label">Add Top Navigation Links here</p>
+</div>

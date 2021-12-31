@@ -42,10 +42,10 @@
                                                 <link
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                    emptyText="Enter Url"
-                                                    fieldLabel="Url"
+                                                    emptyText="Choose a Page"
+                                                    fieldLabel="Path To Link"
                                                     forceSelection="{Boolean}true"
-                                                    name="./url"
+                                                    name="./link"
                                                     required="{Boolean}true"
                                                     rootPath="/content/ucs-exercise-christian"/>
                                                 <defaulttypes
@@ -53,18 +53,26 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                     emptyText="Select a value"
-                                                    fieldLabel="Link Type"
-                                                    name="./type"
+                                                    fieldLabel="Icon Type"
+                                                    name="./icon"
                                                     required="{Boolean}true">
                                                     <items jcr:primaryType="nt:unstructured">
-                                                        <self
+                                                        <search
                                                             jcr:primaryType="nt:unstructured"
-                                                            text="self"
-                                                            value="self"/>
-                                                        <blank
+                                                            text="Search Icon"
+                                                            value="icon-search"/>
+                                                        <worldwide
                                                             jcr:primaryType="nt:unstructured"
-                                                            text="blank"
-                                                            value="blank"/>
+                                                            text="WorldWide Icon"
+                                                            value="icon-estero2"/>
+                                                        <calender
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Calender Icon"
+                                                            value="icon-calendar"/>
+                                                        <contact
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Contact Icon"
+                                                            value="icon-contattaci2"/>
                                                     </items>
                                                 </defaulttypes>
                                             </items>

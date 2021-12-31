@@ -6,7 +6,10 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="UnicreditGroup Magazine"
         sling:configRef="/conf/ucs-exercise-christian"
-        sling:resourceType="ucs-exercise-christian/components/structure/homepage">
+        sling:redirect="{Boolean}true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="foundation/components/redirect"
+        redirectTarget="/content/ucs-exercise-christian/us/en">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
