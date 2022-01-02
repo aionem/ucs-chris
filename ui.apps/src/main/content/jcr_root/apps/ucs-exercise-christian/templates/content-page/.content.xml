@@ -3,7 +3,7 @@
     jcr:description="A static Content template"
     jcr:primaryType="cq:Template"
     jcr:title="Unicredit Content template"
-    allowedPaths="[/content(/.*)?]"
+    allowedPaths="[/content/ucs-exercise-christian(/.*)?]"
     ranking="{Long}1">
     <jcr:content
         jcr:primaryType="cq:PageContent"

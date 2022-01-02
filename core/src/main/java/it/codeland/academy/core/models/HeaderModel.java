@@ -32,7 +32,7 @@ public class HeaderModel {
 
     public Page getTopPage() {
         PageManager pageManager = componentResource.getResourceResolver().adaptTo(PageManager.class);
-
+        LOG.debug("=============><>< DEBUGING" + pageManager);
         Page currentPage = pageManager.getContainingPage(componentResource);
        
         return currentPage.getAbsoluteParent(3);
