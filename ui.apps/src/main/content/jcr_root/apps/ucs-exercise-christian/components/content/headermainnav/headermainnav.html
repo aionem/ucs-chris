@@ -27,7 +27,7 @@
     <div class="navbar__second-level" data-sly-repeat="${model.topPage.listChildren}">
         <div  data-sly-test.child="${item.name}" class="second-level__items ${child}" data-nav-2="${child}">
             <div class="container">
-                <a class="second-level__item--title text--paragraph-title" href="#">
+                <a class="second-level__item--title text--paragraph-title" href="/content/ucs-exercise-christian/us/en/${item.name}.html">
                     ${child}
                 </a>
                 <sly data-sly-list.subpage="${item.listChildren}">

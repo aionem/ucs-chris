@@ -17,18 +17,27 @@ package it.codeland.academy.core.models;
 
 import java.util.*;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Model(adaptables = Resource.class)
+@Model(adaptables = SlingHttpServletRequest.class, adapters = FootelModel.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FootelModel {
     private static final Logger LOG = LoggerFactory.getLogger(FootelModel.class);
 
     @SlingObject
     private Resource currentResource;
+
+    @ValueMapValue
+    String copyrightMsg;
+
+    @ValueMapValue
+    String copyrightImage;
 
     public List<Map<String, String>> getLinks() {
         List<Map<String, String>> BottomNavLinks = new ArrayList<>();
@@ -101,19 +110,28 @@ public class FootelModel {
     public List<Map<String, String>> getUtilsItems() {
         List<Map<String, String>> utilNavLinksMap = new ArrayList<>();
         try {
-            Resource navsDialog=currentResource.getChild("utilNavItems");
-            if(navsDialog!=null){
+            Resource navsDialog = currentResource.getChild("utilNavItems");
+            if (navsDialog != null) {
                 for (Resource navItem : navsDialog.getChildren()) {
-                    Map<String,String> mapNavItem = new HashMap<>();
-                    mapNavItem.put("link",navItem.getValueMap().get("link",String.class));
-                    mapNavItem.put("linkTo",navItem.getValueMap().get("linkTo",String.class));
-                    mapNavItem.put("target",navItem.getValueMap().get("target",String.class));
+                    Map<String, String> mapNavItem = new HashMap<>();
+                    mapNavItem.put("link", navItem.getValueMap().get("link", String.class));
+                    mapNavItem.put("linkTo", navItem.getValueMap().get("linkTo", String.class));
+                    mapNavItem.put("target", navItem.getValueMap().get("target", String.class));
                     utilNavLinksMap.add(mapNavItem);
                 }
             }
-        }catch (Exception e){
-            LOG.info("ERROR while getting first row links ",e.getMessage());
+        } catch (Exception e) {
+            LOG.info("ERROR while getting first row links ", e.getMessage());
         }
         return utilNavLinksMap;
+    }
+    
+
+    public String getCopyrightMsg() {
+        return copyrightMsg;
+    }
+
+    public String getCopyrightImage() {
+        return copyrightImage;
     }
 }

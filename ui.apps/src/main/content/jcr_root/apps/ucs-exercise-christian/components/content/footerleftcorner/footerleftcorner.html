@@ -1,0 +1,11 @@
+<sly data-sly-use.model="it.codeland.academy.core.models.FootelModel">
+  <div data-sly-test="${wcmmode.edit && !model.copyrightMsg && !model.copyrightImage}" class="footer__mainLink">
+    <p class="footer__link">Add Image and copyright text here</p>
+  </div>
+  <div class="footer__col footer__copyright">
+    <img class="footer__logo" src="${model.copyrightImage}" />
+    <div class="footer__copy" data-sly-test="${model.copyrightMsg}">
+      &copy; ${model.copyrightMsg}
+    </div>
+  </div>
+</sly>

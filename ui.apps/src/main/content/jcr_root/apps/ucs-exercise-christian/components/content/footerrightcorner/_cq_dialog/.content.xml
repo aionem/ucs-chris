@@ -10,7 +10,7 @@
                                 <field jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container" emptyText="Util links" name="./utilNavItems">
                                     <items jcr:primaryType="nt:unstructured">
                                         <link jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/textfield" emptyText="Title of your Util Link" fieldLabel="Link Title" name="./link" />
-                                        <linkTo jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" rootPath="/content/ucs-exercise-issa" emptyText="Link to" fieldLabel="Link To" name="./linkTo" />
+                                        <linkTo jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/pathfield" rootPath="/content/ucs-exercise-christian" emptyText="Link to" fieldLabel="Link To" name="./linkTo" />
                                         <target jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/select" emptyText="Select Target" fieldLabel="Select Target" name="./target">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <option1 jcr:primaryType="nt:unstructured" text="New Tab" value="_blank" />
